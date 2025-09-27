@@ -1,11 +1,20 @@
 import streamlit as st
 import pandas as pd
+import os  # for building relative paths
+
+# -----------------------------
+# Paths for CSV files (Cloud-friendly)
+# -----------------------------
+current_dir = os.path.dirname(__file__)  # folder jahan app.py hai
+
+diet_csv_path = os.path.join(current_dir, "data", "diet_tips.csv")
+exercise_csv_path = os.path.join(current_dir, "data", "exercises.csv")
 
 # -----------------------------
 # Load CSV data
 # -----------------------------
-diet_data = pd.read_csv("data/diet_tips.csv")
-exercise_data = pd.read_csv("data/exercises.csv")
+diet_data = pd.read_csv(diet_csv_path)
+exercise_data = pd.read_csv(exercise_csv_path)
 
 # -----------------------------
 # Streamlit UI Setup
